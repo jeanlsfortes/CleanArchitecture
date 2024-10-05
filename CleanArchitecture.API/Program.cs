@@ -1,9 +1,18 @@
+using CleanArchitecture.Domain.Interface;
+using CleanArchitecture.Infrastructure.Data;
+using CleanArchitecture.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDbContext<BlogDbContext>(
+    //Config db
+    );
+
+builder.Services.AddTransient<IBlogRepository, BlogRepository>();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
