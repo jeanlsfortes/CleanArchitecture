@@ -26,10 +26,11 @@ namespace CleanArchitecture.Domain.Enitites
         /// In a robust project, it is also necessary to create a class that will extend Exception and perform domain validations using this class.
         /// pt-br = Em um projeto robusto, também é necessário criar uma classe que estenda Exception e execute validações de domínio usando esta classe.
         /// </summary>
-        public void Update(string name, string description, string imageUrl)
+        public void Update(string name, string description, string author, string? imageUrl = null)
         {
             Name = name;
             Description = description;
+            Author = author;
             ImageUrl = imageUrl;
             UpdatedAt = DateTime.UtcNow;
         }
