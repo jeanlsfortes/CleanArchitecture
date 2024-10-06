@@ -1,3 +1,6 @@
+using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Mappings;
+using CleanArchitecture.Application.Services;
 using CleanArchitecture.Domain.Interface;
 using CleanArchitecture.Infrastructure.Data;
 using CleanArchitecture.Infrastructure.Repositories;
@@ -10,6 +13,8 @@ builder.Services.AddDbContext<BlogDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IBlogRepository, BlogRepository>();
+builder.Services.AddTransient<IBlogService, BlogService>();
+builder.Services.AddAutoMapper(typeof(DomainToDtoMapping));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

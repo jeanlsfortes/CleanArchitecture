@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CleanArchitecture.Domain.Enitites
 {
     public sealed class Blog
@@ -25,7 +20,12 @@ namespace CleanArchitecture.Domain.Enitites
             Description = description;
             Author = author;
         }
-
+        ///<summary>
+        /// the methods below are not being applied because the service is implementing it differently.
+        /// pt-br: the methods below are not being applied because the service is implementing it differently.
+        /// In a robust project, it is also necessary to create a class that will extend Exception and perform domain validations using this class.
+        /// pt-br = Em um projeto robusto, também é necessário criar uma classe que estenda Exception e execute validações de domínio usando esta classe.
+        /// </summary>
         public void Update(string name, string description, string imageUrl)
         {
             Name = name;
