@@ -1,14 +1,13 @@
 using CleanArchitecture.Domain.Interface;
 using CleanArchitecture.Infrastructure.Data;
 using CleanArchitecture.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddDbContext<BlogDbContext>(
-    //Config db
-    );
+builder.Services.AddDbContext<BlogDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<IBlogRepository, BlogRepository>();
 
